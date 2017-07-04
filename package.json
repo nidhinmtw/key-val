@@ -1,0 +1,24 @@
+{
+  "name": "key-val",
+  "version": "0.1.0",
+  "description": "A simple key value paired in memory data store that follows the Javascript object format. It supports persistence to file also.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nidhinmtw/key-val.git"
+  },
+  "keywords": [
+    "keyvalue",
+    "key-value",
+    "database"
+  ],
+  "author": "nidhinmtw",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nidhinmtw/key-val/issues"
+  },
+  "homepage": "https://github.com/nidhinmtw/key-val#readme"
+}
