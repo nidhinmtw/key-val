@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/nidhinmtw/key-val/issues"
   },
-  "homepage": "https://github.com/nidhinmtw/key-val#readme"
+  "homepage": "https://github.com/nidhinmtw/key-val#readme",
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
 }
