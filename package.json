@@ -4,7 +4,6 @@
   "description": "A simple key value paired in memory data store that follows the Javascript object format. It supports persistence to file also.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
