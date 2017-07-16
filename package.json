@@ -1,6 +1,6 @@
 {
   "name": "key-val",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A simple key value paired in memory data store that follows the Javascript object format. It supports persistence to file also.",
   "main": "index.js",
   "scripts": {
