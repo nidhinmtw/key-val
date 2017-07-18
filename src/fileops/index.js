@@ -2,13 +2,20 @@ const fileWriter = require('./fileWrite');
 const fileReader = require('./fileRead');
 const fileEventManager = require('./fileopEvents');
 let writeTimeout;
+let isWriteInProgress = false;
 function writeOperation(path, data) {
     if (writeTimeout) {
         clearTimeout(writeTimeout);
     }
-    writeTimeout = setTimeout(() => {
-        fileWriter.writeJSON(path, data);
-    }, 1000);
+    if (isWriteInProgress === false) {
+        writeTimeout = setTimeout(() => {
+            isWriteInProgress = true;
+            fileWriter.writeJSON(path, data)
+                .then(() => {
+                    isWriteInProgress = false;
+                });
+        }, 1000);
+    }
 }
 
 function addData(data) {
@@ -29,5 +36,6 @@ fileEventManager.addEventListener('modify', modifyData);
 module.exports = {
     writeJSON: fileWriter.writeJSON,
     readJSON: fileReader.readJSON,
-    exists: fileReader.fileExists
+    exists: fileReader.fileExists,
+    eventManager: fileEventManager
 }
