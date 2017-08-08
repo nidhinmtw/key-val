@@ -1,4 +1,4 @@
-const eventManager = require('./fileops');
+const eventManager = require('./fileops').eventManager;
 function keyValCreator(data, path) {
     function keyval() {
         this.add = (key, val) => {
@@ -11,7 +11,16 @@ function keyValCreator(data, path) {
             eventManager.trigger('delete', {data, path});
         };
         this.modify = (key, val) => {
-            Object.assign(data[key], val);
+            const item = data[key];
+            if(!item) {
+                data[key] = val;
+            } else if(typeof item === 'string') {
+                data[key] = val;
+            } else if(Array.isArray(item)) {
+                data[key] = val;
+            } else if (typeof item === 'object') {
+                Object.assign(data[key], val);
+            }
             eventManager.trigger('modify', {data, path});
         };
         this.get = (key) => {

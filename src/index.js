@@ -1,9 +1,13 @@
 const FILE_OPS = require('./fileops');
 let keyval = require('./keyval');
+const KVD_EXTN = '.kvd';
 
 const promiseCallbackProvider = function (path, callback) {
     return (resolve, reject) => {
         let kvDb;
+        if(path.toLowerCase().lastIndexOf(KVD_EXTN) !== path.length - (KVD_EXTN.length)) {
+            path = path.concat(KVD_EXTN);
+        }
         FILE_OPS.exists(path).
             then(isExists => {
                 console.log('File existence .. ', isExists);
