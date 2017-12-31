@@ -14,8 +14,8 @@ function keyValCreator(data, path) {
       objOperator.modify(data, key, ...val);
       eventManager.trigger("modify", { data, path });
     };
-    this.get = key => {
-      return data[key];
+    this.get = (...keys) => {
+      return objOperator.get(data, ...keys);
     };
   }
   return new keyval();
